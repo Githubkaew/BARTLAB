@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BARTLAB Introduction</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Prompt:400,700&display=swap" rel="stylesheet" />
+  <style>
+    /* พื้นฐาน */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', 'Prompt', Arial, sans-serif;
+      color: #222;
+      background: linear-gradient(135deg, #e0f2fe 0%, #fef9c3 100%);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Background ลูกเล่นวงกลมโปร่งแสง */
+    .background-shapes {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .background-shapes span {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.12;
+      filter: blur(40px);
+      animation: floatUpDown 8s ease-in-out infinite alternate;
+    }
+    .shape1 {
+      width: 280px; height: 280px;
+      background: #facc15;
+      top: 50px; left: -120px;
+      animation-delay: 0s;
+    }
+    .shape2 {
+      width: 180px; height: 180px;
+      background: #3b82f6;
+      bottom: 80px; right: 40px;
+      animation-delay: 3s;
+    }
+    .shape3 {
+      width: 120px; height: 120px;
+      background: #fbbf24;
+      top: 300px; right: 160px;
+      animation-delay: 5s;
+    }
+
+    @keyframes floatUpDown {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-30px); }
+    }
+
+    /* Container หลัก */
+    .intro-container {
+      max-width: 820px;
+      margin: 72px auto 48px;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(44, 101, 144, 0.12);
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+      min-height: 460px;
+      position: relative;
+      z-index: 1;
+      padding: 0;
+    }
+
+    /* ซ้าย: รูปและชื่อ */
+    .intro-left {
+      background: linear-gradient(135deg, #fef3c7 0%, #fff9db 100%);
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 24px 40px 24px;
+      box-shadow: inset -6px 0 12px rgba(255, 196, 0, 0.15);
+      transition: background 0.3s ease;
+    }
+    .intro-left:hover {
+      background: linear-gradient(135deg, #fff59d 0%, #fffde7 100%);
+    }
+    .intro-photo {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #e0e0e0;
+      margin-bottom: 22px;
+      border: 6px solid #facc15;
+      box-shadow: 0 4px 20px rgba(250, 204, 21, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .intro-left:hover .intro-photo {
+      transform: scale(1.05) rotate(3deg);
+      box-shadow: 0 8px 32px rgba(250, 204, 21, 0.45);
+    }
+    .intro-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 6px;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .intro-title {
+      font-size: 1.05rem;
+      color: #666;
+      margin-bottom: 0;
+      text-align: center;
+      font-style: italic;
+      letter-spacing: 0.01em;
+    }
+
+    /* ขวา: เนื้อหา */
+    .intro-right {
+      flex: 1;
+      padding: 48px 48px 40px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+    }
+    .intro-main-title {
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #222;
+      margin-bottom: 6px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      line-height: 1;
+      user-select: none;
+    }
+    .intro-highlight {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #facc15;
+      letter-spacing: 2px;
+      margin-bottom: 22px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      display: inline-block;
+      border-bottom: 6px solid #facc15;
+      user-select: none;
+    }
+    .intro-first-letter {
+      float: left;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #facc15;
+      background: #fff9db;
+      border-radius: 8px;
+      width: 52px;
+      height: 52px;
+      line-height: 52px;
+      text-align: center;
+      margin-right: 14px;
+      margin-top: 6px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      user-select: none;
+    }
+    .intro-desc {
+      font-size: 1.12rem;
+      color: #222;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      text-align: justify;
+    }
+    .intro-quote {
+      background: none;
+      font-size: 1.12rem;
+      color: #facc15;
+      font-style: italic;
+      margin: 20px 0 20px 0;
+      padding-left: 40px;
+      position: relative;
+      font-family: 'Prompt', Arial, sans-serif;
+      line-height: 1.7;
+      user-select: none;
+    }
+    .intro-quote:before {
+      content: "“";
+      font-size: 3.2rem;
+      color: #facc15;
+      position: absolute;
+      left: 0;
+      top: -14px;
+      font-family: serif;
+      user-select: none;
+    }
+    .intro-divider {
+      margin: 28px 0;
+      border: none;
+      border-top: 2px solid #eee;
+      width: 100%;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .intro-container {
+        flex-direction: column;
+        min-height: unset;
+      }
+      .intro-left {
+        width: 100%;
+        padding: 36px 0 24px 0;
+        box-shadow: none;
+        background: linear-gradient(135deg, #fff59d 0%, #fffde7 100%);
+      }
+      .intro-right {
+        padding: 32px 24px 24px 24px;
+      }
+      .intro-main-title {
+        font-size: 2rem;
+      }
+      .intro-highlight {
+        font-size: 1.8rem;
+        border-bottom-width: 4px;
+      }
+      .intro-first-letter {
+        font-size: 2rem;
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+        margin-right: 10px;
+        margin-top: 4px;
+      }
+      .intro-photo {
+        width: 140px;
+        height: 140px;
+        border-width: 4px;
+      }
+    }
+    @media (max-width: 480px) {
+      .intro-main-title {
+        font-size: 1.5rem;
+      }
+      .intro-highlight {
+        font-size: 1.3rem;
+      }
+      .intro-first-letter {
+        font-size: 1.5rem;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        margin-right: 8px;
+      }
+      .intro-photo {
+        width: 110px;
+        height: 110px;
+        border-width: 3px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background shapes -->
+  <div class="background-shapes">
+    <span class="shape1"></span>
+    <span class="shape2"></span>
+    <span class="shape3"></span>
+  </div>
+
+  <!-- Main container -->
+  <div class="intro-container">
+    <div class="intro-left">
+      <img src="Introduction_File_2025/jackrit.jpg" alt="BARTLAB Director" class="intro-photo" />
+      <div class="intro-name">Assoc. Prof. Dr. Jackrit Suthakorn</div>
+      <div class="intro-title">Director of BARTLAB</div>
+    </div>
+    <div class="intro-right">
+      <div class="intro-main-title">OUR <span class="intro-highlight">MISSION</span></div>
+      <div class="intro-desc">
+        <span class="intro-first-letter">B</span>ARTLAB is dedicated to pioneering research and innovation in biomedical robotics and automation. Our mission is to bridge engineering and medicine, developing advanced robotic solutions that improve healthcare, patient safety, and quality of life.<br /><br />
+        We foster interdisciplinary collaboration, encourage creativity, and strive for excellence in both research and education. Our team is committed to addressing real-world medical challenges through cutting-edge technology and passionate teamwork.
+      </div>
+      <div class="intro-quote">
+        “Innovation is at the heart of everything we do. By combining technology and compassion, we aim to transform the future of healthcare.”
+      </div>
+      <hr class="intro-divider" />
+      <div class="intro-desc">
+        Join us as we shape the next generation of biomedical engineers, researchers, and innovators—driven by curiosity, guided by ethics, and inspired by the needs of society.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

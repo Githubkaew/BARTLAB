@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BART LAB Activities</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f9fa;
+      margin: 0;
+      color: #222;
+      padding: 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #223a4a;
+      margin-bottom: 30px;
+    }
+      
+    /* เพิ่ม Background Geometry (วงกลมสีฟ้าโปร่งแสง) */
+    .background-shapes {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .background-shapes span {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.13;
+    }
+    .shape1 { width: 220px; height: 220px; background: #90caf9; top: 40px; left: -80px; }
+    .shape2 { width: 140px; height: 140px; background: #64b5f6; bottom: 80px; right: 40px; }
+    .shape3 { width: 100px; height: 100px; background: #b3e5fc; top: 320px; right: 120px; }
+
+
+    .news-item {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
+      transition: box-shadow 0.22s, transform 0.18s;    /* เพิ่ม Hover Effect ให้กล่องข่าว */
+    }
+
+    /* เพิ่ม Hover Effect ให้กล่องข่าว */
+    .news-item:hover {
+      box-shadow: 0 8px 32px rgba(44, 101, 144, 0.18), 0 2px 12px rgba(44, 101, 144, 0.10);
+      transform: translateY(-3px) scale(1.01);
+      background: #e3f7ff;
+    }
+    
+    .news-img {
+      max-width: 100%; /* ไม่ให้เกินขนาดกล่อง */
+      width: auto;     /* ใช้ขนาดจริงถ้าเล็กกว่า */
+      height: auto;    /* รักษาสัดส่วน */
+      display: block;
+      margin: 0 auto; 
+      object-fit: cover;
+      border-bottom: 4px solid #3498db;
+
+      transition: filter 0.2s, transform 0.2s;   /* ลูกเล่นให้ภาพข่าว */
+    }
+    /* ลูกเล่นให้ภาพข่าว */
+    .news-item:hover .news-img {
+      filter: brightness(1.08) contrast(1.08);
+      transform: scale(1.02);
+    }
+
+
+    .news-content {
+      padding: 20px;
+    }
+    .news-date {
+      color: #7178db;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    .news-title {
+      font-size: 1.4rem;
+      color: #1565c0;
+      margin-bottom: 12px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      transition: color 0.18s;
+    }
+
+    /* ไปรับฟอนต์และสีหัวข้อข่าวให้เด่นขึ้น */
+    .news-item:hover .news-title {
+      color: #1976d2;
+    }
+
+    .news-desc {
+      font-size: 1rem;
+      color: #34495e;
+      line-height: 1.6;
+    }
+    @media (max-width: 600px) {
+      .news-img {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+   <!-- เพิ่ม Background Geometry (วงกลมสีฟ้าโปร่งแสง) -->
+  <div class="background-shapes">
+    <span class="shape1"></span>
+    <span class="shape2"></span>
+    <span class="shape3"></span>
+</div>
+
+  <h1>BART LAB Activities</h1>
+  <div id="news-container">
+    <!-- ข่าวจะถูกเพิ่มด้วย JavaScript -->
+  </div>
+
+  
+
+  <script>
+    // ตัวอย่างข้อมูลข่าวเรียงจากเก่าถึงใหม่
+    const newsData = [
+      {
+        img: "News_File_2025/01.jpg",
+        date: "2025-05-16",
+        title:"Ratio of Potassium to Sodium Intake Key to Regulating Blood Pressure, New Modeling Study Suggests",
+        desc: `Excessive dietary sodium raises blood pressure, whereas a high potassium diet has the opposite effect. The underlying mechanisms are moderated by sex and involve multiple organs and tissues. How do high potassium-induced alternations in kidney function lower blood pressure, and how do those mechanisms differ between men and women? To answer these questions, a duo of researchers at the University of Waterloo conducted computer simulations to simulate whole-body fluid and electrolyte homeostasis, and the effects of sodium and potassium intake on blood pressure....`
+      },
+      {
+        img: "News_File_2025/02.jpg",
+        date: "2025-05-22",
+        title:"Compounds Found in Chocolate and Tea May Help Reduce Blood Pressure",
+        desc: `Flavan-3-ols, found in cocoa, tea, and certain fruits, show promise in improving blood pressure and vascular function, but are currently not used for cardiovascular prevention,” said University of Surrey’s Professor Christian Heiss, lead author of the study.Our meta-analysis evaluated the effects of flavan-3-ol-rich interventions on blood pressure and endothelial function.”In their meta-analysis, the authors analyzed data from 145 randomized controlled studies published from 1946 to 2024.They found that regular consumption of flavan-3-ols can lead to a reduction in blood pressure readings, particularly in people with elevated or high blood pressure.In some cases, the average blood pressure-lowering effects were comparable to those seen with some medications.Flavan-3-ols were also found to improve the function of the endothelium — the inner lining of blood vessels — which is crucial for overall cardiovascular health.This improvement occurred independently of blood pressure changes, suggesting a broader posite impact on the circulatory system.“The findings are encouraging for those looking for accessible ways to manage their blood pressure and support their heart health through enjoyable dietary changes,” Professor Heiss said.“Incorporating small amounts of commonly consumed foods like tea, apples, dark chocolate, or cocoa powder into a daily balanced diet could provide beneficial amounts of flavan-3-ols.” “While not a replacement for prescribed medications or medical advice, including more flavan-3-ol-rich foods in a daily routine could be a valuable addition to a healthy lifestyle, especially for those with higher blood pressure.” “These are findings that, although promising, require ongoing investigation.” A paper on the findings was published in the European Journal of Preventive Cardiology.`
+              
+      },
+      {
+        img: "https://picsum.photos/id/1025/800/400",
+        date: "2024-03-05",
+        title: "BART LAB Partners with Local Hospitals",
+        desc: "Collaborations with hospitals have been established to test our logistics robotics system in real hospital environments."
+      },
+      {
+        img: "https://picsum.photos/id/1031/800/400",
+        date: "2024-11-20",
+        title: "New AI Integration in Biomedical Devices",
+        desc: "Our latest research integrates AI algorithms into biomedical devices to enhance diagnostic accuracy and patient care."
+      },
+      {
+        img: "https://picsum.photos/id/1040/800/400",
+        date: "2025-05-10",
+        title: "Upcoming International Conference Participation",
+        desc: "BART LAB members will present their latest findings at the International Biomedical Engineering Conference next month."
+      }
+    ];
+
+    // ฟังก์ชันแปลงวันที่ให้อยู่ในรูปแบบอ่านง่าย
+    function formatDate(dateStr) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(dateStr).toLocaleDateString('en-US', options);
+    }
+
+    // แสดงข่าวในหน้า
+    function displayNews() {
+      const container = document.getElementById('news-container');
+      newsData.forEach(item => {
+        const newsItem = document.createElement('div');
+        newsItem.className = 'news-item';
+
+        newsItem.innerHTML = `
+          <img src="${item.img}" alt="${item.title}" class="news-img" />
+          <div class="news-content">
+            <div class="news-date">🗓️ ${formatDate(item.date)}</div>
+            <div class="news-title">${item.title}</div>
+            <div class="news-desc">${item.desc}</div>
+          </div>
+        `;
+
+        container.appendChild(newsItem);
+      });
+    }
+
+    displayNews();
+  </script>
+</body>
+</html>
