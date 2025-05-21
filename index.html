@@ -1,50 +1,132 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ฺBART LAB Mahidol</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BART LAB Mahidol</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header class="header">
-        <img src="https://i.postimg.cc/62HdZKHT/f76eee15/logo1.png" alt="โลโก้วิศวกรรมศาสตร์" class="logo">
-        <h1>Announcement For Member BARTLAB</h1>
-    </header>
+     <!-- Header: ไล่เฉด “ทองเข้ม → น้ำเงินอ่อน”-->
+  <div class="background-shapes">
+    <span class="shape1"></span>
+    <span class="shape2"></span>
+  </div>
 
-    <div class="container">
-        <div class="announcement-grid">
-            <!-- ประกาศที่ 1 -->
-            <div class="announcement-card" data-poster-id="announcement1">
-                <img src="https://picsum.photos/400/300?random=1" alt="รูปประกาศ" class="announcement-image">
-                <div class="announcement-content">
-                    <div class="announcement-date">20 June 2025</div>
-                    <h2 class="announcement-title">Final Exam Schedule for the First Semester of the Academic Year 1/2025</h2>
-                    <p class="announcement-text">
-                        Final exam schedule for students of all years. Please check the exam timetable and locations carefully...
-                    </p>
-                    <h3>Announcement</h3>
-                    <p>Click to see details</p>
-                </div>
-            </div>
+  <header class="header">
+      <div class="logo-container">
+        <img src="logo_2025/logo1.jpg" alt="Logo 1" class="logo logo-left" />
+        <img src="logo_2025/logo-main.png" alt="Main Logo" class="logo logo-center" />
+        <img src="logo_2025/logo2.png" alt="Logo 2" class="logo logo-right" />
+      </div>
+  <h1 class="header-title">Announcement</h1>
+  </header>
 
-            <!-- ประกาศที่ 2 -->
-            <div class="announcement-card" data-poster-id="announcement2">
-                <img src="https://picsum.photos/400/300?random=2" alt="รูปประกาศ" class="announcement-image">
-                <div class="announcement-content">
-                    <div class="announcement-date">20 July 2025</div>
-                    <h2 class="announcement-title">โครงการพัฒนาทักษะการเขียนโปรแกรม</h2>
-                    <p class="announcement-text">
-                        เปิดรับสมัครนักศึกษาที่สนใจพัฒนาทักษะการเขียนโปรแกรม ระหว่างวันที่ 25 พ.ย. - 5 ธ.ค. 2566...
-                    </p>
-                    <h3>ประกาศ</h3>
-                    <p>คลิกเพื่อดูรายละเอียด</p>
-                </div>
-            </div>
+  <main>
+    <div class="main-grid">
+      <!-- 1. Welcome -->
+      <section class="welcome box" id="welcome">
+        <h2 class="announcement-title1">Welcome to Our BART LAB</h2>
+        <p class="announcement-text">
+            At BART LAB, we are passionate about bridging the gap between humans-especially surgeons-and 
+            intelligent machines such as computers and robots. Our laboratory is a thriving hub where innovation,
+            technology, and human expertise converge to create groundbreaking solutions in 
+            biomedical engineering.
+
+            We believe that the synergy between human intuition and robotic precision can unlock new 
+            possibilities in healthcare, making treatments safer, more effective, and accessible to all. 
+            Our diverse research portfolio spans from cutting-edge robot-assisted surgery and advanced 
+            rehabilitation engineering to the development of smart hospital logistics systems.
+            
+            By fostering interdisciplinary collaboration and encouraging creative problem-solving, 
+            BART LAB is committed to shaping the future of medicine and engineering. 
+            We invite you to join us on this exciting journey as we work together to revolutionize healthcare 
+            practices and improve lives through visionary research and innovative partnerships
+        </p>
+      </section>
+
+      <!-- 2. Next Bart Lab -->
+      <article class="next box" id="next">
+        <img src="https://picsum.photos/400/300?random=1" alt="Next BART LAB" />
+        <div class="card-content">
+          <div class="announcement-date1">20 June 2025</div>
+          <h2 class="announcement-title2">Stay Updated with BART LAB News!</h2>
+          <p class="announcement-text1">
+            Discover the latest breakthroughs, project highlights, 
+            and inspiring stories from our talented team at BART LAB.
+            Whether it’s new research findings, upcoming events, or exciting collaborations, 
+            our news section keeps you informed about everything happening at the forefront of 
+            biomedical engineering innovation.
+            Don’t miss out-click to see the full details and be part of our journey...
+          </p>
+          <h3>News: BART LAB</h3>
+          <button onclick="window.location.href='news1.html'">Click to see details</button>
         </div>
-    </div>
+      </article>
 
-    <script src="script.js"></script>
+      <!-- 3. INTRODUCTION -->
+      <article class="card2" id="intro">
+        <img src="https://picsum.photos/400/300?random=2" alt="INTRODUCTION" />
+        <div class="card-content">
+            
+          <div class="announcement-date1">20 June 2025</div>
+          <h2 class="announcement-title2">Welcome to BART LAB!</h2>
+          <p class="announcement-text1">
+            Discover the vision and mission of BART LAB.
+            Explore how we combine cutting-edge technology with innovative minds to 
+            shape the future of biomedical engineering.
+            Join us and see how you can be a part of our journey...
+          </p>
+          <h3>INTRODUCTION</h3>
+          <button onclick="window.location.href='introduction1.html'">Click to see details</button>
+        </div>
+      </article>
+
+      <!-- 4. Committee -->
+      <article class="card2" id="committee">
+        <img src="https://picsum.photos/400/300?random=3" alt="Committee" />
+        <div class="card-content">
+            
+          <div class="announcement-date1">20 June 2025</div>
+          <h2 class="announcement-title2">Meet Our Committee</h2>
+          <p class="announcement-text1">
+            Get to know the dedicated team behind BART LAB’s success.
+            Our experts and passionate members work together to drive 
+            research and inspire the next generation of engineers.
+            Find out more about the people who make it all possible...
+          </p>
+          <h3>COMMITTEE</h3>
+          <button onclick="window.location.href='committee1.html'">Click to see details</button>
+        </div>
+      </article>
+
+      <!-- 5. ACTIVITY -->
+      <article class="card2" id="activity">
+        <img src="https://picsum.photos/400/300?random=4" alt="ACTIVITY" />
+        <div class="card-content">
+            
+          <div class="announcement-date1">20 June 2025</div>
+          <h2 class="announcement-title2">Exciting Activities Await!</h2>
+          <p class="announcement-text1">
+            Participate in workshops, competitions, and hands-on events designed to boost
+             your engineering skills and creativity.Connect, learn, and grow with fellow
+             students and professionals at BART LAB.Don’t miss out on our upcoming activities...
+          </p>
+          <h3>ACTIVITY</h3>
+          <button onclick="window.location.href='activity1.html'">Click to see details</button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <p class="announcement-title3">
+      Address : BART LAB Faculty of Engineering, Mahidol University<br />
+      25/25 Puttamonthon 4 Road<br />
+      Salaya, Nakorn Pathom 73170<br />
+      Thailand
+    </p>
+    <p class="announcement-title3">Contact Number : 02-889-2138 Ext 6446</p>
+  </footer>
 </body>
 </html>
