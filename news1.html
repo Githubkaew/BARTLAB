@@ -1,194 +1,320 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BART LAB News</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f7f9fa;
-      margin: 0;
-      color: #222;
-      padding: 20px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    h1 {
-      text-align: center;
-      color: #223a4a;
-      margin-bottom: 30px;
-    }
-      
-    /* เพิ่ม Background Geometry (วงกลมสีฟ้าโปร่งแสง) */
-    .background-shapes {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .background-shapes span {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.13;
-    }
-    .shape1 { width: 220px; height: 220px; background: #90caf9; top: 40px; left: -80px; }
-    .shape2 { width: 140px; height: 140px; background: #64b5f6; bottom: 80px; right: 40px; }
-    .shape3 { width: 100px; height: 100px; background: #b3e5fc; top: 320px; right: 120px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BART LAB | News & Updates</title>
 
+<!-- Fonts & Library -->
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ========== RESET ========== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Kanit',sans-serif;
+  color:#222;
+  background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
+  overflow-x:hidden;
+}
 
-    .news-item {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 24px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+/* ========== NAVBAR ========== */
+.navbar{
+  position:fixed;top:0;left:0;width:100%;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 5%;z-index:999;border-bottom:1px solid rgba(0,0,0,0.1);
+}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.nav-logo img{height:48px;width:auto;}
+.nav-logo span{font-size:1.3rem;font-weight:700;color:#004e92;}
+.nav-links{list-style:none;display:flex;gap:25px;}
+.nav-links a{
+  text-decoration:none;font-weight:600;color:#004e92;
+  transition:0.3s;font-size:1rem;
+}
+.nav-links a:hover,.nav-links .active{color:#00a2ff;}
 
-      transition: box-shadow 0.22s, transform 0.18s;    /* เพิ่ม Hover Effect ให้กล่องข่าว */
-    }
+/* ========== HERO ========== */
+.hero-section{
+  margin-top:80px;
+  height:60vh;
+  background:linear-gradient(135deg,#004e92 0%,#00c3ff 100%);
+  display:flex;justify-content:center;align-items:center;flex-direction:column;
+  color:#fff;text-align:center;position:relative;overflow:hidden;
+}
+.hero-section::after{
+  content:'';position:absolute;inset:0;
+  background:url('https://www.transparenttextures.com/patterns/connected.png');
+  opacity:0.2;
+}
+.hero-content h1{font-size:3rem;letter-spacing:1px;}
+.hero-content span{-webkit-text-fill-color:#ffd700;-webkit-background-clip:text;}
+.hero-sub{margin-top:10px;font-size:1.2rem;opacity:0.9;}
 
-    /* เพิ่ม Hover Effect ให้กล่องข่าว */
-    .news-item:hover {
-      box-shadow: 0 8px 32px rgba(44, 101, 144, 0.18), 0 2px 12px rgba(44, 101, 144, 0.10);
-      transform: translateY(-3px) scale(1.01);
-      background: #e3f7ff;
-    }
-    
-    .news-img {
-      max-width: 100%; /* ไม่ให้เกินขนาดกล่อง */
-      width: auto;     /* ใช้ขนาดจริงถ้าเล็กกว่า */
-      height: auto;    /* รักษาสัดส่วน */
-      display: block;
-      margin: 0 auto; 
-      object-fit: cover;
-      border-bottom: 4px solid #3498db;
+/* ========== NEWS SECTION ========== */
+.news-section{padding:100px 20px 80px;}
+.news-section h2{text-align:center;color:#004e92;margin-bottom:50px;font-size:2.2rem;}
+.news-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:35px;max-width:1150px;margin:auto;
+}
+.news-card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  transition:all .3s ease;cursor:pointer;
+}
+.news-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 25px rgba(0,195,255,0.25);
+}
+.news-card img{width:100%;height:220px;object-fit:cover;}
+.news-content{padding:20px 25px 30px;}
+.news-content h3{color:#004e92;margin-bottom:8px;}
+.news-content p{color:#555;}
+.read-btn{
+  margin-top:10px;background:linear-gradient(90deg,#00c3ff,#ffd700);
+  border:none;border-radius:25px;padding:8px 20px;
+  color:#000;font-weight:600;cursor:pointer;transition:.3s;
+}
+.read-btn:hover{transform:scale(1.05);}
 
-      transition: filter 0.2s, transform 0.2s;   /* ลูกเล่นให้ภาพข่าว */
-    }
-    /* ลูกเล่นให้ภาพข่าว */
-    .news-item:hover .news-img {
-      filter: brightness(1.08) contrast(1.08);
-      transform: scale(1.02);
-    }
+/* ========== POPUP NEWS ========== */
+.news-modal{
+  position:fixed;inset:0;background:rgba(0,0,0,0.85);
+  display:none;align-items:center;justify-content:center;
+  z-index:9999;animation:fadeIn .4s ease;
+}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.modal-content{
+  background:#fff;border-radius:20px;width:90%;max-width:950px;
+  max-height:90vh;overflow-y:auto;padding:40px 50px;
+  position:relative;box-shadow:0 0 25px rgba(0,195,255,0.3);
+  animation:scaleUp .4s ease;
+}
+@keyframes scaleUp{from{transform:scale(0.85);}to{transform:scale(1);}}
+.close-btn{
+  position:absolute;top:18px;right:25px;font-size:1.8rem;
+  cursor:pointer;color:#004e92;transition:.3s;
+}
+.close-btn:hover{color:#00c3ff;}
+.modal-gallery{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:12px;margin:20px 0;
+}
+.modal-gallery img{
+  width:100%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:transform .3s;cursor:zoom-in;
+}
+.modal-gallery img:hover{transform:scale(1.03);}
+.modal-desc p{line-height:1.8;color:#333;}
+.news-date{color:#00a2ff;font-size:.9rem;margin-bottom:12px;}
 
+/* ========== FULL IMAGE VIEWER ========== */
+.img-viewer{
+  position:fixed;inset:0;background:rgba(0,0,0,0.95);
+  display:none;align-items:center;justify-content:center;z-index:10000;
+}
+.img-viewer img{
+  max-width:95%;max-height:95%;border-radius:10px;
+  box-shadow:0 0 30px rgba(255,255,255,0.5);
+  animation:zoomIn .3s ease;
+}
+@keyframes zoomIn{from{transform:scale(0.7);}to{transform:scale(1);}}
 
-    .news-content {
-      padding: 20px;
-    }
-    .news-date {
-      color: #7178db;
-      font-size: 0.9rem;
-      margin-bottom: 8px;
-    }
-    .news-title {
-      font-size: 1.4rem;
-      color: #1565c0;
-      margin-bottom: 12px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      transition: color 0.18s;
-    }
+/* ========== FOOTER ========== */
+.footer{
+  background:linear-gradient(90deg,#00c3ff,#ffd700);
+  color:#000;text-align:center;padding:25px;font-weight:600;
+  box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+}
 
-    /* ไปรับฟอนต์และสีหัวข้อข่าวให้เด่นขึ้น */
-    .news-item:hover .news-title {
-      color: #1976d2;
-    }
-
-    .news-desc {
-      font-size: 1rem;
-      color: #34495e;
-      line-height: 1.6;
-    }
-    @media (max-width: 600px) {
-      .news-img {
-        height: 180px;
-      }
-    }
-  </style>
+/* ========== RESPONSIVE ========== */
+@media(max-width:768px){
+  .hero-content h1{font-size:2rem;}
+  .nav-links{gap:15px;}
+  .modal-content{padding:25px;}
+}
+</style>
 </head>
 
 <body>
-   <!-- เพิ่ม Background Geometry (วงกลมสีฟ้าโปร่งแสง) -->
-  <div class="background-shapes">
-    <span class="shape1"></span>
-    <span class="shape2"></span>
-    <span class="shape3"></span>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <img src="logo_2025/logo-main.png" alt="BART LAB Logo">
+    <span>BART LAB</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="introduction1.html">Introduction</a></li>
+    <li><a href="committee1.html">Committee</a></li>
+    <li><a href="news1.html" class="active">News</a></li>
+    <li><a href="activity1.html">Activity</a></li>
+  </ul>
+</nav>
+<!-- Floating Social Sidebar -->
+<div class="social-sidebar">
+  <a href="https://www.facebook.com/BARTLAB" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.instagram.com/" target="_blank" class="social-icon ig"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.youtube.com/" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.tiktok.com/" target="_blank" class="social-icon tk"><i class="fab fa-tiktok"></i></a>
+  <a href="mailto:info@bartlab.org" class="social-icon mail"><i class="fas fa-envelope"></i></a>
 </div>
 
-  <h1>BART LAB News Archive</h1>
-  <div id="news-container">
-    <!-- ข่าวจะถูกเพิ่มด้วย JavaScript -->
+
+
+<!-- HERO -->
+<header class="hero-section">
+  <div class="hero-content" data-aos="fade-up">
+    <h1>BART LAB <span>NEWS</span></h1>
+    <p class="hero-sub">Innovations • Achievements • Highlights</p>
   </div>
+</header>
 
-  
+<!-- NEWS GRID -->
+<section class="news-section">
+  <h2 data-aos="fade-up">Recent Updates</h2>
+  <div class="news-grid">
+    <div class="news-card" data-aos="zoom-in" onclick="openNews(1)">
+      <img src="News_File_2025/news1_1.jpg">
+      <div class="news-content">
+        <h3>Next-Gen Surgical Robot Revealed</h3>
+        <p>AI precision meets surgical innovation in BART LAB’s newest release.</p>
+        <button class="read-btn">Read More</button>
+      </div>
+    </div>
 
-  <script>
-    // ตัวอย่างข้อมูลข่าวเรียงจากเก่าถึงใหม่
-    const newsData = [
-      {
-        img: "News_File_2025/01.jpg",
-        date: "2025-05-16",
-        title:"Ratio of Potassium to Sodium Intake Key to Regulating Blood Pressure, New Modeling Study Suggests",
-        desc: `Excessive dietary sodium raises blood pressure, whereas a high potassium diet has the opposite effect. The underlying mechanisms are moderated by sex and involve multiple organs and tissues. How do high potassium-induced alternations in kidney function lower blood pressure, and how do those mechanisms differ between men and women? To answer these questions, a duo of researchers at the University of Waterloo conducted computer simulations to simulate whole-body fluid and electrolyte homeostasis, and the effects of sodium and potassium intake on blood pressure....`
-      },
-      {
-        img: "News_File_2025/02.jpg",
-        date: "2025-05-22",
-        title:"Compounds Found in Chocolate and Tea May Help Reduce Blood Pressure",
-        desc: `Flavan-3-ols, found in cocoa, tea, and certain fruits, show promise in improving blood pressure and vascular function, but are currently not used for cardiovascular prevention,” said University of Surrey’s Professor Christian Heiss, lead author of the study.Our meta-analysis evaluated the effects of flavan-3-ol-rich interventions on blood pressure and endothelial function.”In their meta-analysis, the authors analyzed data from 145 randomized controlled studies published from 1946 to 2024.They found that regular consumption of flavan-3-ols can lead to a reduction in blood pressure readings, particularly in people with elevated or high blood pressure.In some cases, the average blood pressure-lowering effects were comparable to those seen with some medications.Flavan-3-ols were also found to improve the function of the endothelium — the inner lining of blood vessels — which is crucial for overall cardiovascular health.This improvement occurred independently of blood pressure changes, suggesting a broader posite impact on the circulatory system.“The findings are encouraging for those looking for accessible ways to manage their blood pressure and support their heart health through enjoyable dietary changes,” Professor Heiss said.“Incorporating small amounts of commonly consumed foods like tea, apples, dark chocolate, or cocoa powder into a daily balanced diet could provide beneficial amounts of flavan-3-ols.” “While not a replacement for prescribed medications or medical advice, including more flavan-3-ol-rich foods in a daily routine could be a valuable addition to a healthy lifestyle, especially for those with higher blood pressure.” “These are findings that, although promising, require ongoing investigation.” A paper on the findings was published in the European Journal of Preventive Cardiology.`
-              
-      },
-      {
-        img: "https://picsum.photos/id/1025/800/400",
-        date: "2024-03-05",
-        title: "BART LAB Partners with Local Hospitals",
-        desc: "Collaborations with hospitals have been established to test our logistics robotics system in real hospital environments."
-      },
-      {
-        img: "https://picsum.photos/id/1031/800/400",
-        date: "2024-11-20",
-        title: "New AI Integration in Biomedical Devices",
-        desc: "Our latest research integrates AI algorithms into biomedical devices to enhance diagnostic accuracy and patient care."
-      },
-      {
-        img: "https://picsum.photos/id/1040/800/400",
-        date: "2025-05-10",
-        title: "Upcoming International Conference Participation",
-        desc: "BART LAB members will present their latest findings at the International Biomedical Engineering Conference next month."
-      }
-    ];
+    <div class="news-card" data-aos="zoom-in" onclick="openNews(2)">
+      <img src="News_File_2025/news2_1.jpg">
+      <div class="news-content">
+        <h3>Mahidol Team Wins RoboCup 2025</h3>
+        <p>Championing Thailand’s engineering talent on the global stage.</p>
+        <button class="read-btn">Read More</button>
+      </div>
+    </div>
 
-    // ฟังก์ชันแปลงวันที่ให้อยู่ในรูปแบบอ่านง่าย
-    function formatDate(dateStr) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return new Date(dateStr).toLocaleDateString('en-US', options);
-    }
+    <div class="news-card" data-aos="zoom-in" onclick="openNews(3)">
+      <img src="News_File_2025/news3_1.jpg">
+      <div class="news-content">
+        <h3>AI Rehabilitation System Launch</h3>
+        <p>Empowering patients with adaptive AI-powered recovery solutions.</p>
+        <button class="read-btn">Read More</button>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // แสดงข่าวในหน้า
-    function displayNews() {
-      const container = document.getElementById('news-container');
-      newsData.forEach(item => {
-        const newsItem = document.createElement('div');
-        newsItem.className = 'news-item';
+<!-- POPUP -->
+<div id="newsModal" class="news-modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeNews()">&times;</span>
+    <div id="modalInner"></div>
+  </div>
+</div>
 
-        newsItem.innerHTML = `
-          <img src="${item.img}" alt="${item.title}" class="news-img" />
-          <div class="news-content">
-            <div class="news-date">🗓️ ${formatDate(item.date)}</div>
-            <div class="news-title">${item.title}</div>
-            <div class="news-desc">${item.desc}</div>
-          </div>
-        `;
+<!-- FULLSCREEN IMAGE -->
+<div id="imgViewer" class="img-viewer" onclick="closeImg()">
+  <img id="viewerImg" src="">
+</div>
 
-        container.appendChild(newsItem);
-      });
-    }
+<!-- FOOTER -->
+<footer class="footer">
+  © 2025 BART LAB | Faculty of Engineering, Mahidol University
+</footer>
 
-    displayNews();
-  </script>
+<!-- JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({duration:1000,once:true});</script>
+<script>
+const newsData = {
+  1:{title:"Next-Gen Surgical Robot Revealed",date:"June 10, 2025",
+    desc:`<p>BART LAB unveils its cutting-edge AI surgical robot featuring autonomous navigation and real-time motion prediction. This marks a milestone in Thailand’s medical robotics advancement.</p>`,
+    folder:"News_File_2025/news1_"},
+  2:{title:"Mahidol Team Wins RoboCup 2025",date:"July 22, 2025",
+    desc:`<p>Mahidol’s BART LAB team secured global victory at RoboCup 2025 in Singapore, showcasing innovation in robotics and teamwork excellence.</p>`,
+    folder:"News_File_2025/news2_"},
+  3:{title:"AI Rehabilitation System Launch",date:"Sept 15, 2025",
+    desc:`<p>The adaptive AI rehab system revolutionizes patient recovery, enabling personalized progress tracking through machine learning integration.</p>`,
+    folder:"News_File_2025/news3_"}
+};
+
+function loadImages(folder){
+  let imgs="";
+  for(let i=1;i<=10;i++){
+    const path=`${folder}${i}.jpg`;
+    imgs+=`<img src="${path}" onerror="this.style.display='none';" onclick="showImg('${path}')">`;
+  }
+  return imgs;
+}
+
+function openNews(id){
+  const data=newsData[id];
+  const modal=document.getElementById('newsModal');
+  const inner=document.getElementById('modalInner');
+  const gallery=loadImages(data.folder);
+  inner.innerHTML=`
+    <h2 style="color:#004e92;">${data.title}</h2>
+    <p class="news-date">Published: ${data.date}</p>
+    <div class="modal-gallery">${gallery}</div>
+    <div class="modal-desc">${data.desc}</div>`;
+  modal.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeNews(){
+  document.getElementById('newsModal').style.display='none';
+  document.body.style.overflow='auto';
+}
+function showImg(src){
+  document.getElementById('viewerImg').src=src;
+  document.getElementById('imgViewer').style.display='flex';
+}
+function closeImg(){
+  document.getElementById('imgViewer').style.display='none';
+}
+</script>
+
+  <style>
+/* Floating Social Sidebar */
+.social-sidebar {
+  position: fixed;
+  right: 25px;
+  top: 45%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+.social-icon.fb { background: linear-gradient(45deg,#1877f2,#1a4dc2); }
+.social-icon.ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+.social-icon.yt { background: linear-gradient(45deg,#ff0000,#c60000); }
+.social-icon.tk { background: linear-gradient(45deg,#25f4ee,#fe2c55); }
+.social-icon.mail { background: linear-gradient(45deg,#00c3ff,#004e92); }
+
+.social-icon:hover {
+  transform: scale(1.15) rotate(8deg);
+  box-shadow: 0 8px 25px rgba(0,195,255,0.4);
+}
+</style>
+
 </body>
 </html>
