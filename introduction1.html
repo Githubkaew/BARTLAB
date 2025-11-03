@@ -1,297 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BARTLAB Introduction</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Prompt:400,700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BART LAB Introduction</title>
+
+  <!-- Fonts & Libraries -->
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body style="background: linear-gradient(180deg,#ffffff 0%,#f5f8ff 100%); color:#222; overflow-x:hidden;">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="logo_2025/logo-main.png" alt="BART LAB Logo">
+      <span>BART LAB</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="introduction1.html" class="active">Introduction</a></li>
+      <li><a href="committee1.html">Committee</a></li>
+      <li><a href="news1.html">News</a></li>
+      <li><a href="activity1.html">Activity</a></li>
+    </ul>
+  </nav>
+
+  <!-- Floating Social Bar -->
+  <div class="social-sidebar">
+    <a href="https://www.facebook.com/BARTLAB" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/" target="_blank" class="social-icon ig"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+    <a href="mailto:info@bartlab.org" class="social-icon mail"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <!-- Header -->
+  <header class="hero-section" style="height:55vh; background:linear-gradient(135deg,#001f4d 0%,#0b4da2 100%), url('https://picsum.photos/1600/700?random=56') center/cover no-repeat;">
+    <div class="hero-content" data-aos="fade-down">
+      <h1 class="glow-title" style="font-size:3rem; text-shadow:0 0 20px rgba(255,215,0,0.4);">About <span style="-webkit-text-fill-color:#ffd700;">BART LAB</span></h1>
+      <p class="hero-sub" style="color:#f0f0f0;">Biomedical Engineering and Robotics Technology Laboratory, Mahidol University</p>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section class="intro-section" style="padding:100px 20px 60px;">
+    <div class="container" data-aos="fade-up">
+      <h2 style="text-align:center; color:#0b4da2; font-size:2.2rem; margin-bottom:40px;">Introduction</h2>
+      <div class="intro-content">
+        <p style="color:#333; font-size:1.05rem; line-height:1.9;">
+          At BART LAB, we are passionate about bridging the gap between humans—especially surgeons—and intelligent machines such as computers and robots.
+          Our laboratory is a thriving hub where innovation, technology, and human expertise converge to create groundbreaking solutions in biomedical engineering.
+        </p>
+        <p style="color:#333; font-size:1.05rem; line-height:1.9;">
+          We believe that the synergy between human intuition and robotic precision can unlock new possibilities in healthcare, 
+          making treatments safer, more effective, and accessible to all. Our diverse research portfolio spans from cutting-edge robot-assisted surgery and advanced rehabilitation engineering 
+          to the development of smart hospital logistics systems.
+        </p>
+        <p style="color:#333; font-size:1.05rem; line-height:1.9;">
+          By fostering interdisciplinary collaboration and encouraging creative problem-solving, 
+          BART LAB is committed to shaping the future of medicine and engineering. 
+          We invite you to join us on this exciting journey as we work together to revolutionize healthcare practices 
+          and improve lives through visionary research and innovative partnerships.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder Section -->
+  <section class="founder-section" style="padding:80px 20px; background:linear-gradient(180deg,#f9fbff 0%,#ffffff 100%);">
+    <div class="founder-container" data-aos="fade-up">
+      <div class="founder-grid">
+        <div class="founder-photo" data-aos="fade-right">
+          <img src="Introduction_File_2025/jackrit.jpg" alt="Assoc. Prof. Dr. Jackrit Suthakorn">
+        </div>
+        <div class="founder-text" data-aos="fade-left">
+          <h2 style="color:#0b4da2;">Assoc. Prof. Dr. Jackrit Suthakorn</h2>
+          <h4 style="color:#b8860b; margin-bottom:15px;">Founding Executive Director of BART LAB</h4>
+          <p style="font-size:1rem; color:#333; line-height:1.8;">
+            Assoc. Prof. Dr. Jackrit Suthakorn — a visionary pioneer in biomedical and surgical robotics — 
+            has dedicated his career to advancing Thailand’s medical innovation through intelligent automation and human-machine 
+            synergy. With a Ph.D. in Robotics from Johns Hopkins University (USA), Dr. Jackrit has continually bridged research 
+            and real-world impact, cultivating interdisciplinary collaboration that shapes the next generation of medical
+            technologies.His leadership and relentless pursuit of excellence have inspired countless students and researchers 
+            to join the frontier of biomedical engineering, where compassion meets precision and innovation serves humanity.
+          </p>
+          <p style="font-size:1rem; color:#333; margin-top:12px;">
+            <strong>Ph.D. in Robotics,</strong> Johns Hopkins University, USA<br>
+            <strong>Specialization:</strong> Surgical Robotics, Haptic Systems, and Rehabilitation Engineering
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section class="vision-section" style="padding:80px 20px; background:linear-gradient(180deg,#fdf8e3 0%,#ffffff 100%);">
+    <div class="vision-container" data-aos="fade-up">
+      <h2 style="text-align:center; color:#b8860b; font-size:2.2rem; margin-bottom:40px;">Vision & Mission</h2>
+      <div class="vision-grid">
+        <div class="vision-card" data-aos="zoom-in">
+          <i class="fas fa-eye"></i>
+          <h3>Vision</h3>
+          <p>To become a leading research laboratory in biomedical engineering and robotics technology, advancing innovation and improving human quality of life through intelligent machines.</p>
+        </div>
+        <div class="vision-card" data-aos="zoom-in" data-aos-delay="150">
+          <i class="fas fa-bullseye"></i>
+          <h3>Mission</h3>
+          <p>To develop cutting-edge robotic systems, foster academic and industrial collaborations, and cultivate the next generation of biomedical engineers with strong ethics and creativity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="quote-section" data-aos="fade-up">
+    <blockquote>
+      <i class="fas fa-quote-left" style="color:#ffd700;"></i>
+      <p>“We engineer the future of healthcare — where innovation meets compassion.”</p>
+      <cite>- BART LAB Team</cite>
+    </blockquote>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" style="background:linear-gradient(90deg,#0b4da2,#ffd700); color:#fff;">
+    <p>© 2025 BART LAB | Faculty of Engineering, Mahidol University | Introduction Page</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="script.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+
   <style>
-    /* พื้นฐาน */
-    body {
-      margin: 0;
-      font-family: 'Montserrat', 'Prompt', Arial, sans-serif;
-      color: #222;
-      background: linear-gradient(135deg, #e0f2fe 0%, #fef9c3 100%);
-      overflow-x: hidden;
-      min-height: 100vh;
-      position: relative;
+    .intro-content {
+      max-width: 950px;
+      margin: auto;
+      background: rgba(255,255,255,0.7);
+      border-radius: 20px;
+      padding: 40px 50px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      backdrop-filter: blur(8px);
     }
 
-    /* Background ลูกเล่นวงกลมโปร่งแสง */
-    .background-shapes {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .background-shapes span {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.12;
-      filter: blur(40px);
-      animation: floatUpDown 8s ease-in-out infinite alternate;
-    }
-    .shape1 {
-      width: 280px; height: 280px;
-      background: #facc15;
-      top: 50px; left: -120px;
-      animation-delay: 0s;
-    }
-    .shape2 {
-      width: 180px; height: 180px;
-      background: #3b82f6;
-      bottom: 80px; right: 40px;
-      animation-delay: 3s;
-    }
-    .shape3 {
-      width: 120px; height: 120px;
-      background: #fbbf24;
-      top: 300px; right: 160px;
-      animation-delay: 5s;
-    }
-
-    @keyframes floatUpDown {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-30px); }
-    }
-
-    /* Container หลัก */
-    .intro-container {
-      max-width: 820px;
-      margin: 72px auto 48px;
-      background: #fff;
-      border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(44, 101, 144, 0.12);
+    .founder-grid {
       display: flex;
-      flex-direction: row;
-      overflow: hidden;
-      min-height: 460px;
-      position: relative;
-      z-index: 1;
-      padding: 0;
-    }
-
-    /* ซ้าย: รูปและชื่อ */
-    .intro-left {
-      background: linear-gradient(135deg, #fef3c7 0%, #fff9db 100%);
-      width: 300px;
-      display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       align-items: center;
-      justify-content: flex-start;
-      padding: 40px 24px 40px 24px;
-      box-shadow: inset -6px 0 12px rgba(255, 196, 0, 0.15);
-      transition: background 0.3s ease;
+      gap: 50px;
+      max-width: 1100px;
+      margin: auto;
     }
-    .intro-left:hover {
-      background: linear-gradient(135deg, #fff59d 0%, #fffde7 100%);
-    }
-    .intro-photo {
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: #e0e0e0;
-      margin-bottom: 22px;
-      border: 6px solid #facc15;
-      box-shadow: 0 4px 20px rgba(250, 204, 21, 0.3);
+
+    .founder-photo img {
+      width: 320px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(11,77,162,0.3);
+      border: 5px solid #fff;
       transition: transform 0.3s ease;
     }
-    .intro-left:hover .intro-photo {
-      transform: scale(1.05) rotate(3deg);
-      box-shadow: 0 8px 32px rgba(250, 204, 21, 0.45);
-    }
-    .intro-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 6px;
-      text-align: center;
-      letter-spacing: 0.02em;
-    }
-    .intro-title {
-      font-size: 1.05rem;
-      color: #666;
-      margin-bottom: 0;
-      text-align: center;
-      font-style: italic;
-      letter-spacing: 0.01em;
+
+    .founder-photo img:hover {
+      transform: scale(1.05);
     }
 
-    /* ขวา: เนื้อหา */
-    .intro-right {
+    .founder-text {
       flex: 1;
-      padding: 48px 48px 40px 48px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      position: relative;
-    }
-    .intro-main-title {
-      font-size: 2.8rem;
-      font-weight: 400;
-      letter-spacing: 2px;
-      color: #222;
-      margin-bottom: 6px;
-      font-family: 'Montserrat', Arial, sans-serif;
-      line-height: 1;
-      user-select: none;
-    }
-    .intro-highlight {
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: #facc15;
-      letter-spacing: 2px;
-      margin-bottom: 22px;
-      font-family: 'Montserrat', Arial, sans-serif;
-      display: inline-block;
-      border-bottom: 6px solid #facc15;
-      user-select: none;
-    }
-    .intro-first-letter {
-      float: left;
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #facc15;
-      background: #fff9db;
-      border-radius: 8px;
-      width: 52px;
-      height: 52px;
-      line-height: 52px;
-      text-align: center;
-      margin-right: 14px;
-      margin-top: 6px;
-      font-family: 'Montserrat', Arial, sans-serif;
-      user-select: none;
-    }
-    .intro-desc {
-      font-size: 1.12rem;
-      color: #222;
-      line-height: 1.75;
-      margin-bottom: 28px;
-      text-align: justify;
-    }
-    .intro-quote {
-      background: none;
-      font-size: 1.12rem;
-      color: #facc15;
-      font-style: italic;
-      margin: 20px 0 20px 0;
-      padding-left: 40px;
-      position: relative;
-      font-family: 'Prompt', Arial, sans-serif;
-      line-height: 1.7;
-      user-select: none;
-    }
-    .intro-quote:before {
-      content: "“";
-      font-size: 3.2rem;
-      color: #facc15;
-      position: absolute;
-      left: 0;
-      top: -14px;
-      font-family: serif;
-      user-select: none;
-    }
-    .intro-divider {
-      margin: 28px 0;
-      border: none;
-      border-top: 2px solid #eee;
-      width: 100%;
-      user-select: none;
+      min-width: 280px;
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
-      .intro-container {
-        flex-direction: column;
-        min-height: unset;
-      }
-      .intro-left {
-        width: 100%;
-        padding: 36px 0 24px 0;
-        box-shadow: none;
-        background: linear-gradient(135deg, #fff59d 0%, #fffde7 100%);
-      }
-      .intro-right {
-        padding: 32px 24px 24px 24px;
-      }
-      .intro-main-title {
-        font-size: 2rem;
-      }
-      .intro-highlight {
-        font-size: 1.8rem;
-        border-bottom-width: 4px;
-      }
-      .intro-first-letter {
-        font-size: 2rem;
-        width: 38px;
-        height: 38px;
-        line-height: 38px;
-        margin-right: 10px;
-        margin-top: 4px;
-      }
-      .intro-photo {
-        width: 140px;
-        height: 140px;
-        border-width: 4px;
-      }
+      .founder-grid { flex-direction: column; text-align: center; }
+      .founder-photo img { width: 250px; }
     }
-    @media (max-width: 480px) {
-      .intro-main-title {
-        font-size: 1.5rem;
-      }
-      .intro-highlight {
-        font-size: 1.3rem;
-      }
-      .intro-first-letter {
-        font-size: 1.5rem;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
-        margin-right: 8px;
-      }
-      .intro-photo {
-        width: 110px;
-        height: 110px;
-        border-width: 3px;
-      }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 40px;
+      padding: 0 30px;
+      text-align: center;
+    }
+
+    .vision-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 25px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: all 0.35s ease;
+      color: #333;
+    }
+
+    .vision-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 28px rgba(11,77,162,0.25);
+    }
+
+    .vision-card i {
+      font-size: 2.5rem;
+      color: #0b4da2;
+      margin-bottom: 12px;
+    }
+
+    .vision-card h3 {
+      color: #b8860b;
+      margin-bottom: 12px;
+      font-weight: 700;
     }
   </style>
-</head>
-<body>
-
-  <!-- Background shapes -->
-  <div class="background-shapes">
-    <span class="shape1"></span>
-    <span class="shape2"></span>
-    <span class="shape3"></span>
-  </div>
-
-  <!-- Main container -->
-  <div class="intro-container">
-    <div class="intro-left">
-      <img src="Introduction_File_2025/jackrit.jpg" alt="BARTLAB Director" class="intro-photo" />
-      <div class="intro-name">Assoc. Prof. Dr. Jackrit Suthakorn</div>
-      <div class="intro-title">Director of BARTLAB</div>
-    </div>
-    <div class="intro-right">
-      <div class="intro-main-title">OUR <span class="intro-highlight">MISSION</span></div>
-      <div class="intro-desc">
-        <span class="intro-first-letter">B</span>ARTLAB is dedicated to pioneering research and innovation in biomedical robotics and automation. Our mission is to bridge engineering and medicine, developing advanced robotic solutions that improve healthcare, patient safety, and quality of life.<br /><br />
-        We foster interdisciplinary collaboration, encourage creativity, and strive for excellence in both research and education. Our team is committed to addressing real-world medical challenges through cutting-edge technology and passionate teamwork.
-      </div>
-      <div class="intro-quote">
-        “Innovation is at the heart of everything we do. By combining technology and compassion, we aim to transform the future of healthcare.”
-      </div>
-      <hr class="intro-divider" />
-      <div class="intro-desc">
-        Join us as we shape the next generation of biomedical engineers, researchers, and innovators—driven by curiosity, guided by ethics, and inspired by the needs of society.
-      </div>
-    </div>
-  </div>
-
 </body>
 </html>
