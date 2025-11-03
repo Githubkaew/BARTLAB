@@ -1,132 +1,368 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BART LAB Mahidol</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BART LAB | Home</title>
+
+<!-- Fonts & Library -->
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Kanit',sans-serif;
+  color:#222;
+  background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;top:0;left:0;width:100%;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 5%;z-index:999;border-bottom:1px solid rgba(0,0,0,0.1);
+}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.nav-logo img{height:48px;width:auto;}
+.nav-logo span{font-size:1.3rem;font-weight:700;color:#004e92;}
+.nav-links{list-style:none;display:flex;gap:25px;}
+.nav-links a{
+  text-decoration:none;font-weight:600;color:#004e92;
+  transition:0.3s;font-size:1rem;
+}
+.nav-links a:hover,.nav-links .active{color:#00a2ff;}
+
+/* HERO */
+.hero{
+  margin-top:80px;
+  height:75vh;
+  background:linear-gradient(135deg,#004e92 0%,#00c3ff 100%), url('https://picsum.photos/1600/700?random=88') center/cover no-repeat;
+  color:#fff;display:flex;justify-content:center;align-items:center;flex-direction:column;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero h1{font-size:3rem;letter-spacing:1px;}
+.hero h1 span{-webkit-text-fill-color:#ffd700;-webkit-background-clip:text;}
+.hero p{font-size:1.2rem;margin-top:10px;opacity:0.9;}
+
+/* ABOUT */
+.about{
+  padding:100px 10% 80px;text-align:center;
+}
+.about h2{color:#004e92;font-size:2.2rem;margin-bottom:30px;}
+.about p{max-width:900px;margin:auto;font-size:1.05rem;color:#444;line-height:1.8;}
+
+/* FEATURE CARDS */
+.features{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;margin-top:60px;
+}
+.feature-card{
+  background:#fff;border-radius:20px;box-shadow:0 5px 20px rgba(0,0,0,0.1);
+  padding:30px 25px;transition:.3s;
+}
+.feature-card:hover{transform:translateY(-8px);box-shadow:0 10px 25px rgba(0,195,255,0.25);}
+.feature-card i{font-size:2.5rem;color:#00a2ff;margin-bottom:15px;}
+.feature-card h3{color:#004e92;margin-bottom:10px;}
+.feature-card p{color:#555;}
+
+/* ADDRESS SECTION */
+.address{
+  background:linear-gradient(180deg,#f3f9ff 0%,#fff 100%);
+  padding:100px 10% 80px;text-align:center;
+}
+.address h2{color:#004e92;font-size:2.2rem;margin-bottom:30px;}
+.addr-box{
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
+  box-shadow:0 5px 25px rgba(0,0,0,0.08);
+  padding:30px;max-width:900px;margin:auto;
+}
+.addr-text{font-size:1rem;color:#333;line-height:1.8;}
+.addr-text i{color:#00c3ff;width:24px;}
+.map{
+  margin-top:25px;border-radius:15px;overflow:hidden;
+  box-shadow:0 5px 25px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+.footer{
+  background:linear-gradient(90deg,#00c3ff,#ffd700);
+  color:#000;text-align:center;padding:25px;font-weight:600;
+  box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:2.2rem;}
+  .about{padding:80px 6%;}
+  .address{padding:80px 6%;}
+}
+</style>
 </head>
+
 <body>
-     <!-- Header: ไล่เฉด “ทองเข้ม → น้ำเงินอ่อน”-->
-  <div class="background-shapes">
-    <span class="shape1"></span>
-    <span class="shape2"></span>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <img src="logo_2025/logo-main.png" alt="BART LAB Logo">
+    <span>BART LAB</span>
   </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="introduction1.html">Introduction</a></li>
+    <li><a href="committee1.html">Committee</a></li>
+    <li><a href="news1.html">News</a></li>
+    <li><a href="activity1.html">Activity</a></li>
+  </ul>
+</nav>
 
-  <header class="header">
-      <div class="logo-container">
-        <img src="logo_2025/logo1.jpg" alt="Logo 1" class="logo logo-left" />
-        <img src="logo_2025/logo-main.png" alt="Main Logo" class="logo logo-center" />
-        <img src="logo_2025/logo2.png" alt="Logo 2" class="logo logo-right" />
-      </div>
-  <h1 class="header-title">Announcement</h1>
-  </header>
+<!-- Floating Social Sidebar -->
+<div class="social-sidebar">
+  <a href="https://www.facebook.com/BARTLAB" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.instagram.com/" target="_blank" class="social-icon ig"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.youtube.com/" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.tiktok.com/" target="_blank" class="social-icon tk"><i class="fab fa-tiktok"></i></a>
+  <a href="mailto:info@bartlab.org" class="social-icon mail"><i class="fas fa-envelope"></i></a>
+</div>
 
-  <main>
-    <div class="main-grid">
-      <!-- 1. Welcome -->
-      <section class="welcome box" id="welcome">
-        <h2 class="announcement-title1">Welcome to Our BART LAB</h2>
-        <p class="announcement-text">
-            At BART LAB, we are passionate about bridging the gap between humans-especially surgeons-and 
-            intelligent machines such as computers and robots. Our laboratory is a thriving hub where innovation,
-            technology, and human expertise converge to create groundbreaking solutions in 
-            biomedical engineering.
 
-            We believe that the synergy between human intuition and robotic precision can unlock new 
-            possibilities in healthcare, making treatments safer, more effective, and accessible to all. 
-            Our diverse research portfolio spans from cutting-edge robot-assisted surgery and advanced 
-            rehabilitation engineering to the development of smart hospital logistics systems.
-            
-            By fostering interdisciplinary collaboration and encouraging creative problem-solving, 
-            BART LAB is committed to shaping the future of medicine and engineering. 
-            We invite you to join us on this exciting journey as we work together to revolutionize healthcare 
-            practices and improve lives through visionary research and innovative partnerships
-        </p>
-      </section>
 
-      <!-- 2. Next Bart Lab -->
-      <article class="next box" id="next">
-        <img src="https://picsum.photos/400/300?random=1" alt="Next BART LAB" />
-        <div class="card-content">
-          <div class="announcement-date1">20 June 2025</div>
-          <h2 class="announcement-title2">Stay Updated with BART LAB News!</h2>
-          <p class="announcement-text1">
-            Discover the latest breakthroughs, project highlights, 
-            and inspiring stories from our talented team at BART LAB.
-            Whether it’s new research findings, upcoming events, or exciting collaborations, 
-            our news section keeps you informed about everything happening at the forefront of 
-            biomedical engineering innovation.
-            Don’t miss out-click to see the full details and be part of our journey...
-          </p>
-          <h3>News: BART LAB</h3>
-          <button onclick="window.location.href='news1.html'">Click to see details</button>
-        </div>
-      </article>
 
-      <!-- 3. INTRODUCTION -->
-      <article class="card2" id="intro">
-        <img src="https://picsum.photos/400/300?random=2" alt="INTRODUCTION" />
-        <div class="card-content">
-            
-          <div class="announcement-date1">20 June 2025</div>
-          <h2 class="announcement-title2">Welcome to BART LAB!</h2>
-          <p class="announcement-text1">
-            Discover the vision and mission of BART LAB.
-            Explore how we combine cutting-edge technology with innovative minds to 
-            shape the future of biomedical engineering.
-            Join us and see how you can be a part of our journey...
-          </p>
-          <h3>INTRODUCTION</h3>
-          <button onclick="window.location.href='introduction1.html'">Click to see details</button>
-        </div>
-      </article>
+<!-- HERO -->
+<section class="hero">
+  <canvas id="particleCanvas"></canvas>
+  <div class="hero-content" data-aos="fade-up">
+    <h1 class="lux-title">
+      <span class="shine-text">Welcome to</span><br>
+      <span class="gold-text">BART LAB</span>
+    </h1>
+    <p>Biomedical Engineering Research Center | Faculty of Engineering, Mahidol University</p>
+  </div>
+</section>
 
-      <!-- 4. Committee -->
-      <article class="card2" id="committee">
-        <img src="https://picsum.photos/400/300?random=3" alt="Committee" />
-        <div class="card-content">
-            
-          <div class="announcement-date1">20 June 2025</div>
-          <h2 class="announcement-title2">Meet Our Committee</h2>
-          <p class="announcement-text1">
-            Get to know the dedicated team behind BART LAB’s success.
-            Our experts and passionate members work together to drive 
-            research and inspire the next generation of engineers.
-            Find out more about the people who make it all possible...
-          </p>
-          <h3>COMMITTEE</h3>
-          <button onclick="window.location.href='committee1.html'">Click to see details</button>
-        </div>
-      </article>
+<style>
+.hero {
+  margin-top:80px;
+  height:80vh;
+  background:radial-gradient(circle at 50% 30%,rgba(255,215,0,0.15),transparent 70%),
+             linear-gradient(135deg,#001a3f 0%,#004e92 50%,#00c3ff 100%);
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
 
-      <!-- 5. ACTIVITY -->
-      <article class="card2" id="activity">
-        <img src="https://picsum.photos/400/300?random=4" alt="ACTIVITY" />
-        <div class="card-content">
-            
-          <div class="announcement-date1">20 June 2025</div>
-          <h2 class="announcement-title2">Exciting Activities Await!</h2>
-          <p class="announcement-text1">
-            Participate in workshops, competitions, and hands-on events designed to boost
-             your engineering skills and creativity.Connect, learn, and grow with fellow
-             students and professionals at BART LAB.Don’t miss out on our upcoming activities...
-          </p>
-          <h3>ACTIVITY</h3>
-          <button onclick="window.location.href='activity1.html'">Click to see details</button>
-        </div>
-      </article>
+/* Canvas for floating lights */
+#particleCanvas {
+  position:absolute;
+  inset:0;
+  z-index:0;
+  opacity:0.5;
+}
+
+/* Hero Content */
+.hero-content {
+  position:relative;
+  z-index:1;
+}
+
+/* Title */
+.lux-title {
+  font-size:4rem;
+  font-weight:700;
+  text-transform:uppercase;
+  line-height:1.2;
+  letter-spacing:1px;
+  text-shadow:0 0 25px rgba(255,255,255,0.6);
+}
+
+/* Animated shimmer text “Welcome to” */
+.shine-text {
+  background:linear-gradient(90deg,#ffffff 0%,#ffd700 25%,#fff 50%,#ffd700 75%,#ffffff 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:300%;
+  animation:shineMove 5s linear infinite;
+  font-size:1.6rem;
+  display:inline-block;
+}
+@keyframes shineMove {
+  0%{background-position:300% center;}
+  100%{background-position:-300% center;}
+}
+
+/* Golden title “BART LAB” */
+.gold-text {
+  background:linear-gradient(135deg,#fff5b0 0%,#ffe066 30%,#ffcc33 50%,#ffb300 75%,#fff0a3 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 15px rgba(255,215,0,0.6));
+  animation:goldPulse 3s ease-in-out infinite alternate;
+}
+@keyframes goldPulse {
+  from { filter:drop-shadow(0 0 10px rgba(255,215,0,0.5)) brightness(1); }
+  to { filter:drop-shadow(0 0 35px rgba(255,255,255,0.8)) brightness(1.2); }
+}
+
+/* Subtext */
+.hero p {
+  margin-top:20px;
+  font-size:1.1rem;
+  color:#e6f7ff;
+  text-shadow:0 0 10px rgba(0,195,255,0.3);
+}
+
+/* Responsive */
+@media(max-width:768px) {
+  .lux-title { font-size:2.4rem; }
+  .shine-text { font-size:1.2rem; }
+}
+
+/* Floating Social Sidebar */
+.social-sidebar {
+  position: fixed;
+  right: 25px;
+  top: 45%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+.social-icon.fb { background: linear-gradient(45deg,#1877f2,#1a4dc2); }
+.social-icon.ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+.social-icon.yt { background: linear-gradient(45deg,#ff0000,#c60000); }
+.social-icon.tk { background: linear-gradient(45deg,#25f4ee,#fe2c55); }
+.social-icon.mail { background: linear-gradient(45deg,#00c3ff,#004e92); }
+
+.social-icon:hover {
+  transform: scale(1.15) rotate(8deg);
+  box-shadow: 0 8px 25px rgba(0,195,255,0.4);
+}
+
+</style>
+
+
+
+<script>
+/* Floating golden particles (soft shimmer) */
+const canvas = document.getElementById('particleCanvas');
+const ctx = canvas.getContext('2d');
+let particlesArray;
+const colors = ['#ffd700','#fff4c2','#ffe066','#ffffff'];
+
+function initCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = document.querySelector('.hero').offsetHeight;
+  particlesArray = [];
+  for(let i=0;i<80;i++){
+    particlesArray.push({
+      x:Math.random()*canvas.width,
+      y:Math.random()*canvas.height,
+      size:Math.random()*2+0.5,
+      speedX:(Math.random()-0.5)*0.3,
+      speedY:(Math.random()-0.5)*0.3,
+      color:colors[Math.floor(Math.random()*colors.length)]
+    });
+  }
+}
+function animateParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for(let p of particlesArray){
+    ctx.beginPath();
+    ctx.fillStyle=p.color;
+    ctx.globalAlpha=0.8;
+    ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fill();
+    p.x+=p.speedX;
+    p.y+=p.speedY;
+    if(p.x<0||p.x>canvas.width)p.speedX*=-1;
+    if(p.y<0||p.y>canvas.height)p.speedY*=-1;
+  }
+  requestAnimationFrame(animateParticles);
+}
+window.addEventListener('resize',initCanvas);
+initCanvas();
+animateParticles();
+</script>
+
+
+
+<!-- ABOUT -->
+<section class="about">
+  <h2>About BART LAB</h2>
+  <p>BART LAB (Biomedical Engineering, Assistive Robotics and Rehabilitation Technology Laboratory) is a leading research center focusing on the development of robotics and medical technologies to enhance human health and quality of life. We collaborate with international institutions and industries to drive innovation and create real-world impacts.</p>
+
+  <div class="features">
+    <div class="feature-card" data-aos="zoom-in">
+      <i class="fas fa-robot"></i>
+      <h3>Robotics & Automation</h3>
+      <p>Design and development of assistive and surgical robots for advanced healthcare solutions.</p>
     </div>
-  </main>
+    <div class="feature-card" data-aos="zoom-in">
+      <i class="fas fa-brain"></i>
+      <h3>Artificial Intelligence</h3>
+      <p>Applying AI and machine learning in biomedical signal processing and intelligent systems.</p>
+    </div>
+    <div class="feature-card" data-aos="zoom-in">
+      <i class="fas fa-hand-holding-medical"></i>
+      <h3>Rehabilitation Technology</h3>
+      <p>Creating assistive devices and rehabilitation robots to improve patient recovery outcomes.</p>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <p class="announcement-title3">
-      Address : BART LAB Faculty of Engineering, Mahidol University<br />
-      25/25 Puttamonthon 4 Road<br />
-      Salaya, Nakorn Pathom 73170<br />
-      Thailand
-    </p>
-    <p class="announcement-title3">Contact Number : 02-889-2138 Ext 6446</p>
-  </footer>
+<!-- ADDRESS -->
+<section class="address">
+  <h2>Contact & Address</h2>
+  <div class="addr-box" data-aos="fade-up">
+    <div class="addr-text">
+      <p><i class="fas fa-map-marker-alt"></i> BART LAB, Faculty of Engineering, Mahidol University<br>
+      25/25 Phutthamonthon Sai 4 Road, Salaya, Nakhon Pathom 73170, Thailand</p>
+      <p><i class="fas fa-phone-alt"></i> Tel: +66 (0) 2889 2138 Ext. 6451</p>
+      <p><i class="fas fa-envelope"></i> Email: info@bartlab.org</p>
+      <p><i class="fas fa-globe"></i> Website: <a href="https://bartlab.org" target="_blank">https://bartlab.org</a></p>
+    </div>
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.262870092174!2d100.323723!3d13.798269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29b0f4d5dc781%3A0x3f5b9647f57a165d!2sFaculty%20of%20Engineering%2C%20Mahidol%20University!5e0!3m2!1sen!2sth!4v1699560000000" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2025 BART LAB | Faculty of Engineering, Mahidol University
+</footer>
+
+<!-- AOS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({duration:1000,once:true});</script>
+
 </body>
 </html>
