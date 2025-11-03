@@ -1,336 +1,349 @@
+/* ===========================
+   GLOBAL STYLE — BART LAB 2025
+   =========================== */
+:root {
+  --primary: #00c3ff;
+  --secondary: #ffd700;
+  --accent: #ff5f6d;
+  --dark: #0b132b;
+  --light: #f9fafc;
+  --font-thai: 'Kanit', sans-serif;
+  --font-en: 'Montserrat', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f7f9fa;
-    margin: 0;
-    color: #222;
-  }
+  font-family: var(--font-en), var(--font-thai);
+  color: #fff;
+  background: linear-gradient(120deg, #000428, #004e92);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
 
- /* HEADER ไล่เฉดสีทอง → แดงอ่อน */ 
-  header {
-    /* เปลี่ยน background เดิมเป็น gradient */
-    background: linear-gradient(90deg, #FFD700 0%, #FFC371 50%, #FFB6B6 100%);
-    color: #222;
-    padding: 28px 0 16px 0;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 2px 12px rgba(255, 183, 77, 0.13);
-  }
-  
-  /* สำหรับจัดวางโลโก้ */
-  .logo-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 900px;
-    margin: 0 auto 12px auto;
-    padding: 0 20px;
-  }
+/* ---------------------------
+   BACKGROUND ANIMATION (Particle)
+----------------------------*/
+#bg-animation {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05), transparent 50%);
+  animation: gradientShift 12s ease-in-out infinite alternate;
+}
 
-  header h1 {
-    color: #a83232; /* สีแดงเข้ม */
-    font-size: 2.3rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin: 0;
-    text-shadow: 0 2px 8px rgba(255,255,255,0.13);
-  }
-  .logo-center {
-    width: auto; /* 170px */
-    max-height: 60px;
-    margin-bottom: 10px;
-    filter: drop-shadow(0 2px 8px rgba(255,183,77,0.18));
-    transition: transform 0.3s ease;
-  }
-  header:hover .logo-center {
-    transform: scale(1.05) rotate(-2deg);
-  }
+@keyframes gradientShift {
+  0% { background-position: 0 0, 100% 100%; }
+  100% { background-position: 100% 100%, 0 0; }
+}
 
-  /*
-  /* โลโก้ซ้าย หมุนตามเข็มนาฬิกา */
-  /*@keyframes rotateClockwise {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
+/* Floating glowing dots */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: repeating-radial-gradient(circle at center, rgba(255,255,255,0.07) 0, rgba(255,255,255,0.07) 2px, transparent 3px, transparent 40px);
+  animation: pulseDots 10s infinite ease-in-out alternate;
+  z-index: -1;
+}
+@keyframes pulseDots {
+  from { opacity: 0.2; transform: scale(1);}
+  to { opacity: 0.4; transform: scale(1.05);}
+}
 
-  /* โลโก้ขวา หมุนทวนเข็มนาฬิกา */
-  /*@keyframes rotateCounterClockwise {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(-360deg); }
-  }*/
+/* ---------------------------
+   NAVBAR
+----------------------------*/
+.navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  padding: 12px 40px;
+  z-index: 999;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+.navbar.scrolled {
+  background: rgba(0,0,0,0.6);
+  padding: 8px 32px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+}
+.nav-logo img {
+  height: 40px;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.3));
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after, .nav-links a.active::after {
+  width: 100%;
+}
+.nav-links a:hover {
+  color: var(--secondary);
+}
 
-  /* โลโก้ซ้าย หมุน 5 องศาเมื่อ hover */
-  .logo-left {
-    max-height: 50px;
-    transition: transform 0.3s ease;
-    transform-origin: center;
-    /* animation: rotateClockwise 10s linear infinite;  โลโก้ซ้าย หมุนตามเข็มนาฬิกา */
-  }
-  .logo-left:hover {
-    transform: rotate(5deg);
-  }
-  /* ------------------------ */
+/* ---------------------------
+   HERO SECTION
+----------------------------*/
+.hero-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 70%);
+  color: #fff;
+  padding-top: 80px;
+}
+.glow-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 0 0 20px rgba(255,255,255,0.4);
+  animation: glowText 3s infinite ease-in-out alternate;
+}
+.glow-title span {
+  background: linear-gradient(90deg, #ffd700, #00c3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes glowText {
+  from { text-shadow: 0 0 10px #00c3ff; }
+  to { text-shadow: 0 0 25px #ffd700; }
+}
+.hero-sub {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-top: 8px;
+}
+.btn-hero {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000;
+  background: linear-gradient(90deg, #ffd700, #00c3ff);
+  box-shadow: 0 0 12px rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-hero:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00c3ff;
+}
 
-  .logo-center {
-    max-height: 80px;
-  }
+/* ---------------------------
+   ABOUT SECTION
+----------------------------*/
+.about-section {
+  background: rgba(255,255,255,0.05);
+  text-align: center;
+  padding: 100px 20px 60px;
+  backdrop-filter: blur(8px);
+}
+.about-section h2 {
+  font-size: 2.2rem;
+  color: var(--secondary);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.about-section p {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #eee;
+}
 
-  /* โลโก้ขวา หมุน 8 องศาเมื่อ hover */
-  .logo-right {
-    max-height: 50px;
-    transition: transform 0.3s ease;
-    transform-origin: center;
-    /* animation: rotateClockwise 10s linear infinite;  โลโก้ขวา หมุนตามเข็มนาฬิกา */
-  }
-  .logo-right:hover {
-    transform: rotate(8deg);
-  }
-  /* ------------------------ */
+/* ---------------------------
+   GRID SECTION
+----------------------------*/
+.grid-section {
+  padding: 60px 40px 80px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 28px;
+}
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: all 0.4s ease;
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 25px rgba(255,255,255,0.2);
+}
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.card-content {
+  padding: 20px;
+  text-align: center;
+}
+.card-content h3 {
+  color: var(--secondary);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.card-content p {
+  font-size: 1rem;
+  color: #ddd;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.btn-more {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+.btn-more:hover {
+  box-shadow: 0 0 15px var(--primary);
+  transform: scale(1.05);
+}
 
+/* ---------------------------
+   QUOTE SECTION
+----------------------------*/
+.quote-section {
+  padding: 80px 20px;
+  text-align: center;
+  background: rgba(255,255,255,0.03);
+  font-style: italic;
+  color: #ddd;
+}
+.quote-section i {
+  font-size: 1.8rem;
+  color: var(--secondary);
+}
+.quote-section blockquote {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.quote-section p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin: 20px 0;
+}
+.quote-section cite {
+  display: block;
+  color: var(--secondary);
+  font-style: normal;
+  margin-top: 10px;
+  font-weight: 600;
+}
 
+/* ---------------------------
+   FOOTER
+----------------------------*/
+.footer {
+  background: linear-gradient(90deg, #00c3ff, #ffd700);
+  color: #000;
+  text-align: center;
+  padding: 20px 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
 
-  .header-title {
-    font-size: 2.3rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin: 0;
-    color: #a83232;
-    text-shadow: 0 2px 8px rgba(255,255,255,0.13);
-  }
+/* ---------------------------
+   FLOATING SOCIAL BAR
+----------------------------*/
+.social-sidebar {
+  position: fixed;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+}
+.social-icon:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+.social-icon.fb:hover { background: #1877f2; }
+.social-icon.ig:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+.social-icon.yt:hover { background: #ff0000; }
+.social-icon.mail:hover { background: #ffd700; color: #000; }
 
-/* ---------------------------------------- */
-
- /* ลูกเล่น/Animation ในหน้า Page */ 
-  .background-shapes {
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-  .background-shapes span {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.13;
-    filter: blur(30px);
-    animation: floatUpDown 7s ease-in-out infinite alternate;
-  }
-  .shape1 {
-    width: 220px; height: 220px;
-    background: #FFD700;
-    top: 60px; left: -70px;
-    animation-delay: 0s;
-  }
-  .shape2 {
-    width: 120px; height: 120px;
-    background: #FFB6B6;
-    bottom: 80px; right: 40px;
-    animation-delay: 2.5s;
-  }
-  @keyframes floatUpDown {
-    0% { transform: translateY(0);}
-    100% { transform: translateY(-30px);}
-  }
-
-/* ---------------------------------------- */
-
-  main {
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 0 20px;
-  }
-  
-  .main-grid {
-    display: grid;
-    grid-template-areas:
-      "welcome welcome next"
-      "intro committee activity";
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 32px;
-  }
-  
-  #welcome    { grid-area: welcome; }
-  #next       { grid-area: next; }
-  #intro      { grid-area: intro; }
-  #committee  { grid-area: committee; }
-  #activity   { grid-area: activity; }
-  
-  .welcome {
-    background: #f7f9fa;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(211, 226, 6, 0.9);
-    padding: 20px;
-    text-align: justify;
-    font-style: italic;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 1.27rem;
-    
-    line-height: 1.7;
-    padding: 36px;
-  }
-
-  .next {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-  }
-  
-  .next img {
-    width: 100%;
-    height: 170px;
-    object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom: 4px solid #3498db;
-  }
-  
-  .next .card-content {
-    padding: 18px 10px 22px 10px;
-  }
-  
-  .card2 {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    position: relative;
-    text-align: center;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Animation ให้ Card  */
-  .card2, .next {
-    transition: box-shadow 0.22s, transform 0.18s;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.7s forwards;
-  }
-
-  .card2:nth-child(1), .next:nth-child(1) { animation-delay: 0.1s;}
-  .card2:nth-child(2), .next:nth-child(2) { animation-delay: 0.2s;}
-  .card2:nth-child(3), .next:nth-child(3) { animation-delay: 0.3s;}
-  @keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0);}
-  }
-  .card2:hover, .next:hover {
-    box-shadow: 0 8px 32px rgba(255, 183, 77, 0.18), 0 2px 12px rgba(255, 183, 77, 0.10);
-    transform: translateY(-4px) scale(1.02);
-    background: #fffbe8;
-  }
-  /* ---------------------------------------- */
-
-  .card2 img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-bottom: 4px solid #3498db;
-  }
-  
-  .card-content {
-    padding: 18px 10px 22px 10px;
-  }
-  
-  .card-content h3 {
-    margin: 10px 0 8px 0;
-    font-size: 1.1em;
-    font-style: italic;
-    color: #df1c1c;
-  }
-  
-  .card-content button {
-    background: #223a4a;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 18px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  
-  .card-content button:hover {
-    background: #1a2c38;
-  }
-  
-  .announcement-title1 {
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    font-size: 2.1rem;
-    text-align: center;
-    font-style: italic;
-  }
-  
-  .announcement-title2 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-  }
-  
-  .announcement-title3 {
-    color: #a83232;
-    font-size: 1.05rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-  }
-  
-  .announcement-text1 {
-    color: #34495e;
-    font-size: 1.2rem;
-    line-height: 1.7;
-  }
-  
-  .announcement-date1 {
-    color: #7178db;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  footer {
-    background: linear-gradient(90deg, #FFB6B6 0%, #FFD700 100%);
-    color: #a83232;
-    text-align: center;
-    padding: 18px 0 12px 0;
-    font-size: 1em;
-    margin-top: 30px;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    box-shadow: 0 -2px 12px rgba(255, 183, 77, 0.13); 
-  }
-  
-  @media (max-width: 900px) {
-    .main-grid {
-      grid-template-areas:
-        "welcome"
-        "next"
-        "intro"
-        "committee"
-        "activity";
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-      gap: 16px;
-    }
-    #next img,
-    .card2 img {
-      height: 120px;
-    }
-
-    /* สำหรับจัดวางโลโก้ */
-    .logo-left,
-    .logo-right {
-      display: none;
-    }
-    .logo-center {
-      max-height: 60px;
-    }
-  }
-  
+/* ---------------------------
+   RESPONSIVE
+----------------------------*/
+@media (max-width: 800px) {
+  .hero-section h1 { font-size: 2.2rem; }
+  .about-section { padding: 80px 20px; }
+  .navbar { flex-direction: column; }
+  .nav-links { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
+  .nav-links a { padding: 4px 8px; }
+  .social-sidebar { right: 6px; }
+}
