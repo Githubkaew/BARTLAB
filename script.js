@@ -11,7 +11,6 @@ window.addEventListener('scroll', () => {
     navbar.classList.remove('scrolled');
   }
 });
-
 /* ========= 2. Particle Background ========= */
 const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
@@ -24,20 +23,17 @@ const maxSize = 3;
 const minSize = 0.5;
 let mouse = { x: null, y: null };
 let particleCount = window.innerWidth < 768 ? 40 : 80;
-
 /* Resize handler */
 window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   init();
 });
-
 /* Mouse tracking */
 window.addEventListener('mousemove', (event) => {
   mouse.x = event.x;
   mouse.y = event.y;
 });
-
 /* Particle Object */
 class Particle {
   constructor(x, y, dx, dy, size, color) {
@@ -47,7 +43,7 @@ class Particle {
     this.dy = dy;
     this.size = size;
     this.color = color;
-  }
+}
 
   draw() {
     ctx.beginPath();
@@ -61,14 +57,13 @@ class Particle {
   update() {
     this.x += this.dx;
     this.y += this.dy;
-
-    // Bounce from edges
+// Bounce from edges
     if (this.x + this.size > canvas.width || this.x - this.size < 0) {
       this.dx = -this.dx;
-    }
+}
     if (this.y + this.size > canvas.height || this.y - this.size < 0) {
       this.dy = -this.dy;
-    }
+}
 
     // Interact with mouse
     const dx = mouse.x - this.x;
@@ -76,18 +71,18 @@ class Particle {
     const distance = Math.sqrt(dx * dx + dy * dy);
     if (distance < 80 && this.size < 6) {
       this.size += 0.2;
-    } else if (this.size > minSize) {
+} else if (this.size > minSize) {
       this.size -= 0.05;
     }
 
     this.draw();
-  }
+}
 }
 
 /* Init Particles */
 function init() {
   particlesArray = [];
-  for (let i = 0; i < particleCount; i++) {
+for (let i = 0; i < particleCount; i++) {
     const size = Math.random() * 2 + 0.5;
     const x = Math.random() * (window.innerWidth - size * 2);
     const y = Math.random() * (window.innerHeight - size * 2);
@@ -95,14 +90,14 @@ function init() {
     const dy = (Math.random() - 0.5) * 0.8;
     const color = colors[Math.floor(Math.random() * colors.length)];
     particlesArray.push(new Particle(x, y, dx, dy, size, color));
-  }
+}
 }
 
 /* Animate Loop */
 function animate() {
   requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < particlesArray.length; i++) {
+for (let i = 0; i < particlesArray.length; i++) {
     particlesArray[i].update();
   }
 }
@@ -117,12 +112,10 @@ animate();
 const glow = document.createElement('div');
 glow.classList.add('cursor-glow');
 document.body.appendChild(glow);
-
 document.addEventListener('mousemove', (e) => {
   glow.style.left = e.pageX + 'px';
   glow.style.top = e.pageY + 'px';
 });
-
 /* ========= 4. Smooth Anchor Scroll ========= */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -132,7 +125,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
-
 /* ========= 5. VanillaTilt Config ========= */
 if (typeof VanillaTilt !== "undefined") {
   VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
