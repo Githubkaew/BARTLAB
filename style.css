@@ -1,5 +1,5 @@
 /* ===========================
-   GLOBAL STYLE — BART LAB 2025
+   GLOBAL STYLE — AMARIZ CO.,LTD.
    =========================== */
 :root {
   --primary: #00c3ff;
@@ -20,20 +20,22 @@
 
 body {
   font-family: var(--font-en), var(--font-thai);
-  color: #fff;
-  background: linear-gradient(120deg, #000428, #004e92);
+  color: #2A4266;
+  background: #F6F0EA;
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
 }
 
 /* ---------------------------
-   BACKGROUND ANIMATION (Particle)
+   BACKGROUND ANIMATION (Hidden for clean design)
 ----------------------------*/
 #bg-animation {
+  display: none; 
   position: fixed;
   top: 0; left: 0;
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   z-index: -1;
   background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 50%),
               radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05), transparent 50%);
@@ -45,8 +47,9 @@ body {
   100% { background-position: 100% 100%, 0 0; }
 }
 
-/* Floating glowing dots */
+/* Floating glowing dots (Hidden for clean design) */
 body::before {
+  display: none;
   content: "";
   position: fixed;
   width: 100%;
@@ -65,7 +68,8 @@ body::before {
 ----------------------------*/
 .navbar {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -101,7 +105,7 @@ body::before {
 }
 .nav-links a {
   text-decoration: none;
-  color: #fff;
+  color: #2A4266;
   font-weight: 500;
   letter-spacing: 0.5px;
   transition: 0.3s;
@@ -121,7 +125,7 @@ body::before {
   width: 100%;
 }
 .nav-links a:hover {
-  color: var(--secondary);
+  color: #E84114;
 }
 
 /* ---------------------------
@@ -133,30 +137,9 @@ body::before {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 70%);
-  color: #fff;
+  background: #F6F0EA;
+  color: #2A4266;
   padding-top: 80px;
-}
-.glow-title {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-shadow: 0 0 20px rgba(255,255,255,0.4);
-  animation: glowText 3s infinite ease-in-out alternate;
-}
-.glow-title span {
-  background: linear-gradient(90deg, #ffd700, #00c3ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-@keyframes glowText {
-  from { text-shadow: 0 0 10px #00c3ff; }
-  to { text-shadow: 0 0 25px #ffd700; }
-}
-.hero-sub {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  margin-top: 8px;
 }
 .btn-hero {
   display: inline-block;
