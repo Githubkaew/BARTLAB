@@ -28,11 +28,21 @@ body{
 }
 .nav-logo{display:flex;align-items:center;gap:12px;}
 .nav-links{list-style:none;display:flex;gap:25px;}
-.nav-links a{
-  text-decoration:none;font-weight:600;color:#2A4266;
-  transition:0.3s;font-size:1rem;
+.nav-links a {
+  text-decoration: none;
+  color: #1d1d1f; /* สีเทาเข้มแบบสไตล์ Apple */
+  font-weight: 400; /* ปรับตัวอักษรให้บางลง */
+  font-size: 1.2rem; /* ปรับขนาดให้เล็กลงดูมินิมอลขึ้น (ประมาณ 14px) */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* บังคับใช้ฟอนต์ระบบ (San Francisco) เพื่อให้เหมือนภาพ After */
+  letter-spacing: normal; /* ระยะห่างตัวอักษรแบบมาตรฐาน */
+  transition: 0.3s;
+  position: relative;
 }
-.nav-links a:hover,.nav-links .active{color:#E84114;}
+.nav-links a:hover, .nav-links a.active {
+  color: #0f0f0f; /* เปลี่ยนเป็นสีดำสนิทเมื่อเอาเมาส์ชี้ */
+  opacity: 0.7; /* ทำให้ดูโปร่งแสงลงเล็กน้อยแบบสมูทๆ */
+}
+
 
 /* HERO */
 .hero{
@@ -47,29 +57,64 @@ body{
 .about{
   padding:100px 10% 80px;text-align:center;
 }
-.about h2{color:#004e92;font-size:2.2rem;margin-bottom:30px;}
-.about p{max-width:900px;margin:auto;font-size:1.05rem;color:#444;line-height:1.8;}
+.about h2{color:#2A4266;font-size:2.2rem;margin-bottom:30px;font-family: 'Urbanist', 'Montserrat', sans-serif;} 
+
 
 /* FEATURE CARDS */
-.features{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;margin-top:60px;
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* บังคับให้แสดงผลเป็น 2 คอลัมน์ (2x2) */
+  gap: 15px; /* ระยะห่างระหว่างกล่อง */
+  margin-top: 80px;
+  max-width: 900px; /* กำหนดความกว้างสูงสุดให้อยู่ตรงกลางสวยงาม */
+  margin-left: auto;
+  margin-right: auto;
 }
-.feature-card{
-  background:#fff;border-radius:20px;box-shadow:0 5px 20px rgba(0,0,0,0.1);
-  padding:30px 25px;transition:.3s;
+.feature-card {
+  background: #ffffff; /* พื้นสีขาว */
+  border-radius: 12px; /* ขอบมนนิดเดียวพอ */
+  box-shadow: none; /* แบนๆ ไม่ต้องมีเงา */
+  padding: 60px 20px; /* เพิ่มความสูงให้กล่องดูมีพื้นที่ว่างแบบมินิมอล */
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #f0f0f0; /* เพิ่มเส้นขอบบางๆ สีเทาอ่อนให้กล่องดูมีขอบเขต (ถ้าไม่ชอบลบบรรทัดนี้ได้ครับ) */
 }
-.feature-card:hover{transform:translateY(-8px);box-shadow:0 10px 25px rgba(0,195,255,0.25);}
-.feature-card i{font-size:2.5rem;color:#00a2ff;margin-bottom:15px;}
-.feature-card h3{color:#004e92;margin-bottom:10px;}
-.feature-card p{color:#555;}
+.feature-card:hover {
+  background: #f5f5f7; /* เวลาเอาเมาส์ชี้ให้พื้นหลังเปลี่ยนเป็นสีเทาอ่อนสไตล์ Apple แทนการใส่เงา */
+  transform: none; /* ไม่ต้องให้กล่องลอยขึ้น */
+  box-shadow: none;
+}
+.feature-card h3 {
+  color: #1d1d1f; /* สีตัวอักษรสีเทาดำ */
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ปรับให้ responsive แสดงผล 1 คอลัมน์เมื่อเปิดในมือถือ */
+@media(max-width: 768px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* ADDRESS SECTION */
 .address{
-  background:linear-gradient(180deg,#f3f9ff 0%,#fff 100%);
-  padding:100px 10% 80px;text-align:center;
+  background: #F6F0EA; /* เปลี่ยนสีพื้นหลังเป็นสีครีมอ่อนตามที่ระบุ */
+  padding: 100px 10% 80px;
+  text-align: center;
 }
-.address h2{color:#004e92;font-size:2.2rem;margin-bottom:30px;}
+.address h2{
+  color: #2A4266; /* เปลี่ยนสีตัวอักษรเป็นสีน้ำเงินเข้ม */
+  font-size: 2.2rem; 
+  margin-bottom: 30px;
+  font-family: 'Urbanist', 'Montserrat', sans-serif; /* ปรับฟอนต์ให้เข้ากับธีมใหม่ */
+}
+
 .addr-box{
   background:rgba(255,255,255,0.8);
   backdrop-filter:blur(10px);
@@ -86,10 +131,14 @@ body{
 
 /* FOOTER */
 .footer{
-  background:linear-gradient(90deg,#00c3ff,#ffd700);
-  color:#000;text-align:center;padding:25px;font-weight:600;
-  box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+  background: #E84114; /* เปลี่ยนสีพื้นหลังเป็นสีส้มตามที่ระบุ */
+  color: #000000; /* คงสีตัวอักษรเป็นสีดำตามในรูปภาพอ้างอิง */
+  text-align: center;
+  padding: 25px;
+  font-weight: 600;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
 }
+
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -111,10 +160,10 @@ body{
   </div>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="introduction1.html">Introduction</a></li>
-    <li><a href="committee1.html">Committee</a></li>
-    <li><a href="news1.html">News</a></li>
-    <li><a href="activity1.html">Activity</a></li>
+    <li><a href="introduction1.html">Robster</a></li>
+    <li><a href="committee1.html">Top U</a></li>
+    <li><a href="news1.html">Amarize </a></li>
+    <li><a href="activity1.html">Robotics Solutions</a></li>
   </ul>
 </nav>
 
@@ -249,25 +298,20 @@ animateParticles();
 </script>
 
 <section class="about">
-  <h2>About AMARIZ</h2>
-  <p>BART LAB (Biomedical Engineering, Assistive Robotics and Rehabilitation Technology Laboratory) is a leading research center focusing on the development of robotics and medical technologies to enhance human health and quality of life.
-We collaborate with international institutions and industries to drive innovation and create real-world impacts.</p>
-
+  <h2>Our Services</h2>
+  
   <div class="features">
-    <div class="feature-card" data-aos="zoom-in">
-      <i class="fas fa-robot"></i>
-      <h3>Robotics & Automation</h3>
-      <p>Design and development of assistive and surgical robots for advanced healthcare solutions.</p>
+    <div class="feature-card" data-aos="zoom-in" data-aos-delay="0">
+      <h3>Robster</h3>
     </div>
-    <div class="feature-card" data-aos="zoom-in">
-      <i class="fas fa-brain"></i>
-      <h3>Artificial Intelligence</h3>
-      <p>Applying AI and machine learning in biomedical signal processing and intelligent systems.</p>
- </div>
-    <div class="feature-card" data-aos="zoom-in">
-      <i class="fas fa-hand-holding-medical"></i>
-      <h3>Rehabilitation Technology</h3>
-      <p>Creating assistive devices and rehabilitation robots to improve patient recovery outcomes.</p>
+    <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+      <h3>Top U</h3>
+    </div>
+    <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+      <h3>Amarize</h3>
+    </div>
+    <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+      <h3>Robotics Solutions</h3>
     </div>
   </div>
 </section>
@@ -277,18 +321,14 @@ We collaborate with international institutions and industries to drive innovatio
   <div class="addr-box" data-aos="fade-up">
     <div class="addr-text">
       <p><i class="fas fa-map-marker-alt"></i> AMARIZ CO.,LTD.<br>
-      25/25 Phutthamonthon Sai 4 Road, Salaya, Nakhon Pathom 73170, Thailand</p>
-      <p><i class="fas fa-phone-alt"></i> Tel: 
-+66 (0) 2889 2138 Ext. 6451</p>
-      <p><i class="fas fa-envelope"></i> Email: info@bartlab.org</p>
-      <p><i class="fas fa-globe"></i> Website: <a href="https://bartlab.org" target="_blank">https://bartlab.org</a></p>
+      ที่อยู่ 198/41 M.1 Salaya, Phutthamonthon, Nakhon Pathom 73170, Thailand</p>
+      <p><i class="fas fa-phone-alt"></i> Tel: +66 (0) 90 532 5555</p>
+      <p><i class="fas fa-envelope"></i> Email: choladawan@amariz.co</p>
+      <p><i class="fas fa-globe"></i> Website: <a href="https://www.amariz.co" target="_blank">https://www.amariz.co</a></p>
     </div>
-    <div class="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.262870092174!2d100.323723!3d13.798269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29b0f4d5dc781%3A0x3f5b9647f57a165d!2sFaculty%20of%20Engineering%2C%20Mahidol%20University!5e0!3m2!1sen!2sth!4v1699560000000" width="100%" height="350" style="border:0;"
-allowfullscreen="" loading="lazy"></iframe>
     </div>
-  </div>
 </section>
+
 
 <footer class="footer">
   © 2026 AMARIZ CO.,LTD.
